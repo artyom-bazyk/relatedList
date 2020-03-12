@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-box slds-theme_shade">
+        <lightning-record-edit-form object-api-name="Contact">
+            <div class="slds-grid slds-p-left_x-small">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-input-field field-name="AccountId" value={accountId} onchange={handleAccountIdChange}>
+                    </lightning-input-field>
+                </div>
+            </div>            
+        </lightning-record-edit-form>
+    </div>    
+
+    <c-related-list 
+        record-id={accountId}
+        sobject-api-name="Contact"
+        related-field-api-name="AccountId"
+        sorted-by="LastName, FirstName"
+        fields="Name, Title, Email, Phone"
+        columns={contactColumns}>
+    </c-related-list>
+    <c-related-list 
+        record-id={accountId}
+        sobject-api-name="Opportunity"
+        related-field-api-name="AccountId"
+        sorted-by="CloseDate"
+        sorted-direction="DESC"
+        fields="Name, StageName, CloseDate, Amount"
+        columns={opptyColumns}>
+    </c-related-list>        
+    <c-related-list 
+        record-id={accountId}
+        sobject-api-name="Case"
+        related-field-api-name="AccountId"
+        sorted-by="CaseNumber"
+        sorted-direction="DESC"
+        fields="CaseNumber, Contact.Name, Priority, Subject"
+        columns={caseColumns}
+        custom-actions={customActions}
+        row-action-handler={customHandler}>
+    </c-related-list> 
+</template>

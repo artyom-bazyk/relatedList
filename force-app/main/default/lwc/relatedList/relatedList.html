@@ -1,0 +1,49 @@
+<template>
+    <template if:true={state.showRelatedList}>
+        <c-related-list-new-edit-popup 
+            onrefreshdata={handleRefreshData}>
+
+        </c-related-list-new-edit-popup>
+        <c-related-list-delete-popup
+            onrefreshdata={handleRefreshData}>
+
+        </c-related-list-delete-popup>
+
+        <lightning-layout class="slds-m-top_x-small">
+            <article class="slds-card lightning-card">
+                <div class="slds-card__header slds-grid slds-theme_shade">
+                  <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name={state.iconName} size="small"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                      <h2 class="slds-card__header-title">
+                        <a class="slds-card__header-link" onclick={handleGotoRelatedList}>{state.title}</a>
+                      </h2>
+                    </div>
+                    <div class="slds-no-flex">
+                        <lightning-button label="New" onclick={handleCreateRecord}></lightning-button>
+                    </div>
+                  </header>
+                </div>
+                <template if:true={hasRecords}>
+                    <div>
+                        <lightning-datatable class="related-list"
+                                            onrowaction={handleRowAction}
+                                            columns={state.columns}
+                                            data={state.records}
+                                            key-field="Id"
+                                            hide-checkbox-column="true"
+                                            resize-column-disabled="true">
+                        </lightning-datatable>   
+                    </div>
+                    <footer class="slds-card__footer">
+                        <a onclick={handleGotoRelatedList}>View All</a>
+                    </footer>                            
+                </template>
+              </article>                       
+        </lightning-layout>
+    </template>
+   
+                                    
+</template>

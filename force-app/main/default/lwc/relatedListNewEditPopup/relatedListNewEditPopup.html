@@ -1,0 +1,23 @@
+<template>
+    <template if:true={showModal}>
+        <c-modal onclosedialog={handleDialogClose}>
+            <span slot="header">{header}</span>
+            <slot>
+                <lightning-record-form
+                                class="record-form"
+                                record-id={recordId}
+                                object-api-name={sobjectApiName}
+                                layout-type="Full" 
+                                columns="2"
+                                density="compact"
+                                mode="edit"
+                                onsuccess={handleSuccess}>
+                </lightning-record-form>
+            </slot>
+            <span slot="footer">
+                <lightning-button variant="neutral" label="Cancel" title="Cancel" onclick={handleClose} ></lightning-button>
+                <lightning-button variant="brand" label="Save" title="Save" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+            </span>
+        </c-modal>
+    </template>
+</template>
