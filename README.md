@@ -13,4 +13,4 @@ The component configuration fields are:
 - **row-action-handler** - The action triggered when a row action is clicked. It overrides standard handler (Optional)
 - **number-of-records** - number of records in a list. Default is 6 (Optional)
 
-![](realtedList.gif)
+![](relatedList.gif)
