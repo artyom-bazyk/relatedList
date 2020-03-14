@@ -14,7 +14,7 @@ The component configuration fields are:
 - **sorted-by** - Name of field used for sorting (Required)
 - **sorted-direction** -  ASC or DESC for ascending/descending directions of sorting (Optional)
 - **fields** - List of API Names for displaying (Required)
-- **columns** - Array of the columns object that's used to define the data types (Required). For data types [read datatable specification](https://developer.salesforce.com/docs/component-library/bundle/lightning:datatable/specification) 
+- **columns** - Array of the columns object that's used to define the data types (Required). For data types [read datatable specification](https://developer.salesforce.com/docs/component-library/bundle/lightning-datatable/documentation) 
 - **custom-actions** - List of actions in action menu (Optional). Edit and Delete are default.
 - **row-action-handler** - The action triggered when a row action is clicked. It overrides standard handler (Optional)
 - **number-of-records** - number of records in a list. Default is 6 (Optional)
