@@ -1,7 +1,7 @@
 # Related List component based on LWC framework
 Lightning component for displaying a list of Salesforce records that are related to a parent record with a lookup or master-detail relationship.
 
-[Install the package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000003zHCYQA2)
+[Install the package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t6F000003zHCnQAM)
 
 **Notes:**
 - When click "New" button you need to fill in parent record in the pop up.
