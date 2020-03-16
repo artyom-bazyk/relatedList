@@ -6,7 +6,23 @@ import {loadStyle} from 'lightning/platformResourceLoader';
 import relatedListResource from '@salesforce/resourceUrl/relatedListResource';
 
 export default class RelatedList extends NavigationMixin(LightningElement) {
-    @track state = {}
+    @track state = {
+        recordId:'',
+        records:[],
+        showRelatedList:false,
+        fields:'',
+        relatedFieldApiName:'',
+        numberOfRecords:{},
+        sobjectApiName:'',
+        sortedBy:'',
+        sortedDirection:'',
+        customActions:[],
+        iconName:'',
+        sobjectLabel:'',
+        sobjectLabelPlural:'',
+        title:'',
+        parentRelationshipApiName:''
+    }
     @api sobjectApiName;
     @api relatedFieldApiName;
     @api numberOfRecords = 6;
