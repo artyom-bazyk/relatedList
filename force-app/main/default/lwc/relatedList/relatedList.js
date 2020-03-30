@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { LightningElement, track, api } from "lwc";
 import { NavigationMixin } from "lightning/navigation";
 import RelatedListHelper from "./relatedListHelper";
@@ -6,23 +5,7 @@ import {loadStyle} from 'lightning/platformResourceLoader';
 import relatedListResource from '@salesforce/resourceUrl/relatedListResource';
 
 export default class RelatedList extends NavigationMixin(LightningElement) {
-    @track state = {
-        recordId:'',
-        records:[],
-        showRelatedList:false,
-        fields:'',
-        relatedFieldApiName:'',
-        numberOfRecords:{},
-        sobjectApiName:'',
-        sortedBy:'',
-        sortedDirection:'',
-        customActions:[],
-        iconName:'',
-        sobjectLabel:'',
-        sobjectLabelPlural:'',
-        title:'',
-        parentRelationshipApiName:''
-    }
+    @track state = {}
     @api sobjectApiName;
     @api relatedFieldApiName;
     @api numberOfRecords = 6;
@@ -38,10 +21,6 @@ export default class RelatedList extends NavigationMixin(LightningElement) {
         loadStyle(this, relatedListResource + '/relatedList.css')
     }
 
-    connectedCallback() {
-        this.init();
-    }
-
     @api
     get recordId() {
         return this.state.recordId;
@@ -49,9 +28,7 @@ export default class RelatedList extends NavigationMixin(LightningElement) {
 
     set recordId(value) {
         this.state.recordId = value;
-        if (this.sobjectApiName) {
-            this.init();
-        }
+        this.init();
     }
     get hasRecords() {
         return this.state.records != null && this.state.records.length;
@@ -59,7 +36,11 @@ export default class RelatedList extends NavigationMixin(LightningElement) {
 
     async init() {
         this.state.showRelatedList = this.recordId != null;
-        if (!this.recordId) {
+        if (! (this.recordId
+            && this.sobjectApiName
+            && this.relatedFieldApiName
+            && this.fields
+            && this.columns)) {
             this.state.records = [];
             return;
         }
