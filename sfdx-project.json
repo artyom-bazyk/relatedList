@@ -1,0 +1,20 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "Related List",
+            "versionName": "ver 0.3",
+            "versionNumber": "0.3.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "48.0",
+    "packageAliases": {
+        "Related List": "0Ho6F000000XZxTSAW",
+        "Related List@0.2.0.1": "04t6F000003zHCsQAM",
+        "Related List@0.1.0-3": "04t6F000003zIJqQAM",
+        "Related List@0.3.0-1": "04t6F000003zIJvQAM"
+    }
+}
